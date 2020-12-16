@@ -9,6 +9,7 @@ fi
 RUN_PID=$!
 echo $RUN_PID > run.pid
 START_MSG="Started RestServiceApplication"
-echo "Process starting as $RUN_PID. Logging to $DIR/run.log."
+echo "Process starting as PID $RUN_PID. Logging to $DIR/run.log."
+echo "Using default host: localhost and port: 8080."
 ( tail -f -n0 run.log & ) | grep -q "$START_MSG"
 echo $START_MSG
