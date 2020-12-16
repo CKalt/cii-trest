@@ -8,7 +8,7 @@ fi
 ./mvnw spring-boot:run >& run.log &
 RUN_PID=$!
 echo $RUN_PID > run.pid
-START_MSG="Started CiiRestApp"
+START_MSG="Started RestServiceApplication"
 echo "Process starting as $RUN_PID. Logging to $DIR/run.log."
 ( tail -f -n0 run.log & ) | grep -q "$START_MSG"
 echo $START_MSG
