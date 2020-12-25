@@ -9,50 +9,75 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.http.*;
 import org.springframework.web.client.HttpStatusCodeException;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Order;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Page;
+
+import com.querydsl.core.BooleanBuilder;
+import com.querydsl.core.types.Predicate;
+
+import com.example.model.user.Role;
+import com.example.model.user.User;
+import com.example.model.user.User;
+import com.example.model.user.QUser;
+import com.example.restservice.PageOfUsers;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import com.example.restservice.FilterAndPageRequest;
+import com.example.model.FilterAndPageRequest;
+import com.example.model.FilterAndPageRequestOp;
 
 @RestController
 public class FilterAndPageRequestController {
     Logger logger = LoggerFactory.getLogger(FilterAndPageRequestController.class);
 
-	@GetMapping("/fprq")
-	public FilterAndPageRequest filterAndPageRequest(@RequestParam(value = "name", defaultValue = "World") String name) {
-        String foo = "wow";
-        String bar = "it works!";
-        int lmn = 20;
-        String def = "hello";
-        FilterAndPageRequest xyz = new FilterAndPageRequest();
-        xyz.put("foo", foo);
-        xyz.put("bar", bar);
+	@GetMapping("/greeting")
+	public PageOfUsers greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
+        String sortAttribute = "username";
+        String urlKey = "GADCSC";
 
-        FilterAndPageRequest abc = new FilterAndPageRequest();
-        abc.put("xyz", xyz);
-        abc.put("lmn", lmn);
-
+//        BooleanBuilder filter = new BooleanBuilder();
         FilterAndPageRequest fprq = new FilterAndPageRequest();
-        fprq.put("abc", abc);
-        fprq.put("def", def);
-
-///////////////////////////////////////////////////////
-
-//        FilterAndPageRequest fprq = new FilterAndPageRequest();
-//        fprq.setPredicate(predicate);
-//        fprq.setPageRequest(pageRequest);
+/////////////////////////
+//        filter.and(QUser.user.urlKey.eq(urlKey));
+/////////////////////////
+        FilterAndPageRequestOp fop = new FilterAndPageRequestOp();
+        fop.put("andQUserUrlKeyEq", urlKey);
+        fprq.add(fop);
+/////////////////////////
+//        filter.and(QUser.user.role.eq(Role.ROLE_COURT));
+/////////////////////////
+        fop = new FilterAndPageRequestOp();
+        fop.put("andQUseRoleEq", Role.ROLE_COURT);
+        fprq.add(fop);
+/////////////////////////
+        int pageIndex = 0;
+        int pageSize = 50;
+//        PageRequest pageRequest = PageRequest.of(pageIndex, pageSize,
+//                Sort.by(Sort.Direction.DESC,"createdAt"));
+/////////////////////////
+        FilterAndPageRequestOp fopArgs = new FilterAndPageRequestOp();
+        fopArgs.put("pageIndex", pageIndex);
+        fopArgs.put("pageSize", pageSize);
+        fopArgs.put("sortBy", "createdAt");
+        fop = new FilterAndPageRequestOp();
+        fop.put("PageRequestOf", fopArgs);
+        fprq.add(fop);
+/////////////////////////
 
         RestTemplate rest = new RestTemplate();
         String restEndPoint = "http://localhost:8081";
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
+
         HttpEntity<FilterAndPageRequest> entity =
             new HttpEntity<FilterAndPageRequest>(fprq, headers);
 
-        FilterAndPageRequest page = new FilterAndPageRequest();
+        PageOfUsers page = null;
         try {
-            page =
-                rest.postForObject(restEndPoint + "/userQuery", entity, FilterAndPageRequest.class);
+            page = rest.postForObject(restEndPoint + "/userQuery", entity,
+                        PageOfUsers.class);
         }
         catch (HttpStatusCodeException ex) {
             logger.error("Error posting to /userQuery rest endpoint");
