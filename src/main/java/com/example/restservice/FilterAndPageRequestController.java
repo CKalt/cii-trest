@@ -54,7 +54,7 @@ public class FilterAndPageRequestController {
 //                Sort.by(Sort.Direction.DESC,"createdAt"));
 /////////////////////////
         String sortBy = "createdAt";
-        fprq.addPageRequestOp(pageIndex, pageSize, sortBy);
+        fprq.addPageRequestOp(pageIndex, pageSize);
 /////////////////////////
 
         RestTemplate rest = new RestTemplate();
