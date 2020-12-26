@@ -42,28 +42,19 @@ public class FilterAndPageRequestController {
 /////////////////////////
 //        filter.and(QUser.user.urlKey.eq(urlKey));
 /////////////////////////
-        FilterAndPageRequestOp fop = new FilterAndPageRequestOp();
-        fop.put("andQUserUrlKeyEq", urlKey);
-        fprq.add(fop);
+        fprq.addOp("andQUserUrlKeyEq", urlKey);
 /////////////////////////
 //        filter.and(QUser.user.role.eq(Role.ROLE_COURT));
 /////////////////////////
-        fop = new FilterAndPageRequestOp();
-        fop.put("andQUseRoleEq", Role.ROLE_COURT);
-        fprq.add(fop);
+        fprq.addOp("andQUseRoleEq", Role.ROLE_COURT);
 /////////////////////////
         int pageIndex = 0;
         int pageSize = 50;
 //        PageRequest pageRequest = PageRequest.of(pageIndex, pageSize,
 //                Sort.by(Sort.Direction.DESC,"createdAt"));
 /////////////////////////
-        FilterAndPageRequestOp fopArgs = new FilterAndPageRequestOp();
-        fopArgs.put("pageIndex", pageIndex);
-        fopArgs.put("pageSize", pageSize);
-        fopArgs.put("sortBy", "createdAt");
-        fop = new FilterAndPageRequestOp();
-        fop.put("PageRequestOf", fopArgs);
-        fprq.add(fop);
+        String sortBy = "createdAt";
+        fprq.addPageRequestOp(pageIndex, pageSize, sortBy);
 /////////////////////////
 
         RestTemplate rest = new RestTemplate();
