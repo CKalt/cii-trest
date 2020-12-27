@@ -33,7 +33,7 @@ public class FilterAndPageRequestController {
     Logger logger = LoggerFactory.getLogger(FilterAndPageRequestController.class);
 
 	@GetMapping("/greeting")
-	public PageOfUsers greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
+	public Page<User> greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
         String sortAttribute = "username";
         String urlKey = "GADCSC";
 
@@ -74,6 +74,6 @@ public class FilterAndPageRequestController {
             logger.error("Error posting to /userQuery rest endpoint");
         }
 
-		return page;
+		return page.page;
 	}
 }
