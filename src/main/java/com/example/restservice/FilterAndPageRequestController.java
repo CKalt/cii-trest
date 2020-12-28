@@ -53,7 +53,9 @@ public class FilterAndPageRequestController {
 //        PageRequest pageRequest = PageRequest.of(pageIndex, pageSize,
 //                Sort.by(Sort.Direction.DESC,"createdAt"));
 /////////////////////////
-        String sortBy = "createdAt";
+        fprq.addOp("sortDirection", Sort.Direction.ASC);
+        fprq.addOp("sortByItem", "username");
+/////////////////////////
         fprq.addPageRequestOp(pageIndex, pageSize);
 /////////////////////////
 
