@@ -34,7 +34,7 @@ public class FilterAndPageRequestController {
 
 	@GetMapping("/greeting")
         
-    public ResponseEntity<RestResponsePage<User>> greeting(
+    public Page<User> greeting(
                 @RequestParam(value = "name", defaultValue = "World") String name) {
         String sortAttribute = "username";
         String urlKey = "GADCSC";
@@ -81,6 +81,6 @@ public class FilterAndPageRequestController {
             logger.error("Error posting to /userQuery rest endpoint");
         }
 
-		return result;
+		return result.getBody();
 	}
 }

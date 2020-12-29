@@ -34,5 +34,4 @@ class RestResponsePage<T> extends PageImpl<T> {
     public RestResponsePage() {
         super(new ArrayList<T>());
     }
-
 }
