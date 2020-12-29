@@ -1,3 +1,2 @@
 #!/bin/sh
-echo curl -s http://localhost:8080/greeting
 curl -s http://localhost:8080/greeting

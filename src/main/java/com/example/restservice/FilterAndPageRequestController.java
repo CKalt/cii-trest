@@ -13,6 +13,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Order;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Page;
+import org.springframework.core.ParameterizedTypeReference;
 
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.types.Predicate;
@@ -21,7 +22,6 @@ import com.example.model.user.Role;
 import com.example.model.user.User;
 import com.example.model.user.User;
 import com.example.model.user.QUser;
-import com.example.restservice.PageOfUsers;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,7 +33,9 @@ public class FilterAndPageRequestController {
     Logger logger = LoggerFactory.getLogger(FilterAndPageRequestController.class);
 
 	@GetMapping("/greeting")
-	public Page<User> greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
+        
+    public ResponseEntity<RestResponsePage<User>> greeting(
+                @RequestParam(value = "name", defaultValue = "World") String name) {
         String sortAttribute = "username";
         String urlKey = "GADCSC";
 
@@ -64,18 +66,21 @@ public class FilterAndPageRequestController {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
 
+        ParameterizedTypeReference<RestResponsePage<User>> responseType =
+                new ParameterizedTypeReference<RestResponsePage<User>>() {};
+
         HttpEntity<FilterAndPageRequest> entity =
             new HttpEntity<FilterAndPageRequest>(fprq, headers);
 
-        PageOfUsers page = null;
+        ResponseEntity<RestResponsePage<User>> result = null;
         try {
-            page = rest.postForObject(restEndPoint + "/userQuery", entity,
-                        PageOfUsers.class);
+            result = rest.exchange(restEndPoint + "/userQuery", HttpMethod.POST,
+                        entity, responseType);
         }
         catch (HttpStatusCodeException ex) {
             logger.error("Error posting to /userQuery rest endpoint");
         }
 
-		return page.page;
+		return result;
 	}
 }
