@@ -1,4 +1,4 @@
-package com.example.model;
+package com.example.query;
 import java.util.HashMap;
 
 public class FilterAndPageRequestOp extends HashMap<String,Object> { 

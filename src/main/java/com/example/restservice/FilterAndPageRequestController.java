@@ -15,18 +15,12 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Page;
 import org.springframework.core.ParameterizedTypeReference;
 
-import com.querydsl.core.BooleanBuilder;
-import com.querydsl.core.types.Predicate;
-
 import com.example.model.user.Role;
 import com.example.model.user.User;
-import com.example.model.user.User;
-import com.example.model.user.QUser;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import com.example.model.FilterAndPageRequest;
-import com.example.model.FilterAndPageRequestOp;
+import com.example.query.FilterAndPageRequest;
 
 @RestController
 public class FilterAndPageRequestController {
