@@ -1,10 +1,6 @@
 package com.example.query;
 
-import java.util.HashMap;
-import java.util.Arrays;
 import java.util.ArrayList;
-
-import com.example.query.FilterAndPageRequestOp;
 
 public class FilterAndPageRequest extends ArrayList<FilterAndPageRequestOp> {
     public void addPageRequestOp(int pageIndex, int pageSize) {
