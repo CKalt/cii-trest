@@ -189,7 +189,7 @@ public class FilterAndPageRequestController {
 
 	@GetMapping("/notificationList")
     public List<Notification> notificationList(
-                @RequestParam(value = "status") String status) {
+                @RequestParam(value = "status", defaultValue = "PENDING") String status) {
         String url = "http://localhost:8081/notifications/search/findByStatusIn?notificationStatuses={notificationStatuses}";
         String csvList = "PENDING";
 
