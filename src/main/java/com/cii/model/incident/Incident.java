@@ -2,14 +2,12 @@ package com.cii.model.incident;
 
 import com.cii.model.negotiation.PartyContainer;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.querydsl.core.annotations.QueryEntity;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.math.BigDecimal;
 import java.util.*;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@QueryEntity
 @Document
 public class Incident {
     String id;

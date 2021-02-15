@@ -3,6 +3,8 @@ package com.cii.restservice;
 import java.text.ParseException;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.Date;
+import java.util.List;
+import java.util.Arrays;
 import java.text.SimpleDateFormat;
 import java.text.DateFormat;
 
@@ -22,6 +24,7 @@ import org.springframework.core.ParameterizedTypeReference;
 import com.cii.model.user.Role;
 import com.cii.model.user.User;
 import com.cii.model.job.JobInfo;
+import com.cii.model.notification.Notification;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -151,6 +154,7 @@ public class FilterAndPageRequestController {
         ParameterizedTypeReference<RestResponsePage<Notification>> responseType =
                 new ParameterizedTypeReference<RestResponsePage<Notification>>() {};
 
+        FilterAndPageRequest fprq = new FilterAndPageRequest();
         HttpEntity<FilterAndPageRequest> entity =
             new HttpEntity<FilterAndPageRequest>(fprq, headers);
 
@@ -165,4 +169,31 @@ public class FilterAndPageRequestController {
 
 		return result.getBody();
 	}
+
+    public List<Notification> doGetEntityList(String url, Class<Notification[]> klass, Object... urlVariables) {
+        RestTemplate rest = new RestTemplate();
+        List<Notification> result = null;
+        try {
+            ResponseEntity<Notification[]> response = rest.getForEntity(url, klass, urlVariables);
+            Notification[] entities = response.getBody();
+            result = Arrays.asList(entities);
+        }
+        catch (HttpStatusCodeException ex) {
+            if (ex.getStatusCode() != HttpStatus.NOT_FOUND) {
+                throw ex;
+            }
+        }
+
+        return result;
+    }
+
+	@GetMapping("/notificationList")
+    public List<Notification> notificationList(
+                @RequestParam(value = "status") String status) {
+        String url = "http://localhost:8081/notifications/search/findByStatusIn?notificationStatuses={notificationStatuses}";
+        String csvList = "PENDING";
+
+        List<Notification> nns = doGetEntityList(url, Notification[].class, csvList);
+		return nns;
+    }
 }

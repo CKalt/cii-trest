@@ -2,10 +2,9 @@ package com.cii.model.notification;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import com.querydsl.core.annotations.QueryEntity;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
+
 import com.cii.model.notification.NotificationStatus;
 
 import java.util.Date;
@@ -19,7 +18,6 @@ import java.util.List;
   @JsonSubTypes.Type(value = EmailNotification.class, name = "EMAIL"),
   @JsonSubTypes.Type(value = SMSNotification.class, name = "SMS"),
 })
-@QueryEntity
 @Document
 public abstract class Notification {
 
@@ -34,10 +32,8 @@ public abstract class Notification {
 	private ContentType contentType;
 	private String errorMessage;
 
-	@Indexed
 	private String negotiationId;
 	
-	@Indexed
 	private Date createDate;
 	private Date sentDate;
 	

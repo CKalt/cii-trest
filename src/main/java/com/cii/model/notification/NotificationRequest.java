@@ -4,18 +4,8 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.CompoundIndex;
-import org.springframework.data.mongodb.core.index.CompoundIndexes;
-import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import com.querydsl.core.annotations.QueryEntity;
-
-@QueryEntity
-@Document
-@CompoundIndexes({
-    @CompoundIndex(name = "urlKeyAndStatus", def = "{urlKey: 1, status: 1}")
-})
 public class NotificationRequest {
 
 	@Id
@@ -30,7 +20,6 @@ public class NotificationRequest {
 	private String email;
 	private String phone;
 	
-	@Indexed
 	private Date createDate;
 	private NotificationRequestStatus status;
 	private Date sent;
@@ -137,5 +126,4 @@ public class NotificationRequest {
 	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
 	}
-
 }

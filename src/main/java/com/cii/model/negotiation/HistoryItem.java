@@ -1,6 +1,5 @@
 package com.cii.model.negotiation;
 
-import com.querydsl.core.annotations.QueryEntity;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.index.CompoundIndex;
 import org.springframework.data.mongodb.core.index.CompoundIndexes;
@@ -10,7 +9,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-@QueryEntity
 @Document
 @CompoundIndexes({
     @CompoundIndex(name = "negotiationId", def = "{negotiationId: 1, createDate: -1}")

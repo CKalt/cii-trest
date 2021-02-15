@@ -13,9 +13,7 @@ import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.cii.model.incident.EligibilityStatus;
-import com.querydsl.core.annotations.QueryEntity;
 
-@QueryEntity
 @Document
 @CompoundIndexes({
     @CompoundIndex(name = "urlKeyAndCreateDate", def = "{urlKey: 1, createDate: -1}")
