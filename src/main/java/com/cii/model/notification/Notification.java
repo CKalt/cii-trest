@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.cii.bean.ModelWithIdAccess;
 import com.cii.model.notification.NotificationStatus;
 
 import java.util.Date;
@@ -19,7 +20,7 @@ import java.util.List;
   @JsonSubTypes.Type(value = SMSNotification.class, name = "SMS"),
 })
 @Document
-public abstract class Notification {
+public abstract class Notification extends ModelWithIdAccess {
 
 	@Id
 	private String id;

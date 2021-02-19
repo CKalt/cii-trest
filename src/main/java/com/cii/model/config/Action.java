@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.cii.model.event.EventData;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonSetter;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Action {
@@ -102,6 +103,7 @@ public class Action {
 		return listeners;
 	}
 
+    @JsonSetter
 	public void setListeners(List<ActionListener> listeners) {
 		this.listeners = listeners;
 	}

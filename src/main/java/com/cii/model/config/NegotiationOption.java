@@ -2,13 +2,9 @@ package com.cii.model.config;
 
 import com.cii.model.negotiation.Negotiation;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
 import java.util.Map;
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonTypeInfo(use=JsonTypeInfo.Id.CLASS, include=JsonTypeInfo.As.PROPERTY, property="_class")
 public class NegotiationOption {
 	protected boolean required;
 	protected Map<String, Boolean> conditions;

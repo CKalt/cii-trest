@@ -2,12 +2,14 @@ package com.cii.model.user;
 
 import java.util.*;
 
+import com.cii.bean.ModelWithIdAccess;
+
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import javax.persistence.Transient;
 
 @Document
-public class User {
+public class User extends ModelWithIdAccess {
 	private String id;
 	@Indexed
 	private String urlKey;

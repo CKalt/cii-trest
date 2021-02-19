@@ -8,13 +8,14 @@ import java.util.Map;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.cii.bean.ModelWithIdAccess;
 import com.cii.model.negotiation.NegotiationConversation;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 @Document
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Configuration {
+public class Configuration extends ModelWithIdAccess {
 	@Id
 	private String id;
 	private String name;

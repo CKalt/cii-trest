@@ -20,11 +20,16 @@ import org.springframework.data.domain.Sort.Order;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Page;
 import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.cii.model.user.Role;
 import com.cii.model.user.User;
 import com.cii.model.job.JobInfo;
 import com.cii.model.notification.Notification;
+import com.cii.model.config.Configuration;
+import com.cii.repository.NotificationRestRepository;
+import com.cii.repository.ConfigurationRestRepository;
+import com.cii.repository.UserRestRepository;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,6 +38,15 @@ import com.cii.query.FilterAndPageRequest;
 @RestController
 public class FilterAndPageRequestController {
     Logger logger = LoggerFactory.getLogger(FilterAndPageRequestController.class);
+
+    @Autowired
+    UserRestRepository userRestRepository;
+
+    @Autowired
+    NotificationRestRepository notificationRestRepository;
+
+    @Autowired
+    ConfigurationRestRepository configurationRestRepository;
 
 	@GetMapping("/userQuery")
     public Page<User> userQuery(
@@ -170,30 +184,42 @@ public class FilterAndPageRequestController {
 		return result.getBody();
 	}
 
-    public List<Notification> doGetEntityList(String url, Class<Notification[]> klass, Object... urlVariables) {
-        RestTemplate rest = new RestTemplate();
-        List<Notification> result = null;
-        try {
-            ResponseEntity<Notification[]> response = rest.getForEntity(url, klass, urlVariables);
-            Notification[] entities = response.getBody();
-            result = Arrays.asList(entities);
-        }
-        catch (HttpStatusCodeException ex) {
-            if (ex.getStatusCode() != HttpStatus.NOT_FOUND) {
-                throw ex;
-            }
-        }
-
-        return result;
+	@GetMapping("/notificationListByNegotiationId")
+    public List<Notification> notificationListByNegotiationId(
+                @RequestParam(value = "negotiationId",
+                defaultValue = "5fc93b2e314da8000116e959") String negotiationId) {
+        List<Notification> nns =
+            notificationRestRepository.findByNegotiationIdOrderByCreateDateDesc(negotiationId);
+		return nns;
     }
 
-	@GetMapping("/notificationList")
-    public List<Notification> notificationList(
-                @RequestParam(value = "status", defaultValue = "PENDING") String status) {
-        String url = "http://localhost:8081/notifications/search/findByStatusIn?notificationStatuses={notificationStatuses}";
-        String csvList = "PENDING";
+	@GetMapping("/notificationListByStatuses")
+    public List<Notification> notificationListByStatuses(
+                @RequestParam(value = "statuses", defaultValue = "ERROR") String statuses) {
 
-        List<Notification> nns = doGetEntityList(url, Notification[].class, csvList);
+        List<Notification> nns = notificationRestRepository.findByStatusIn(statuses);
 		return nns;
+    }
+
+	@GetMapping("/notificationFindOne")
+    public Notification notificationFindOne(
+                @RequestParam(value = "id", defaultValue = "5c98efcd3ae1053be0d42bb4") String id) {
+        Notification nn = notificationRestRepository.findOneById(id);
+		return nn;
+    }
+
+	@GetMapping("/userFindByRole")
+    public List<User> userFindByRole(
+                @RequestParam(value = "role", defaultValue = "ROLE_COURT") Role role) {
+        List<User> users =
+            userRestRepository.findByRoleOrderByUsernameAsc(role);
+		return users;
+    }
+
+	@GetMapping("/configurationFindOne")
+    public Configuration configurationFindOne(
+                @RequestParam(value = "id", defaultValue = "5cf55047643a1f0001f5cab6") String id) {
+        Configuration config = configurationRestRepository.findById(id);
+		return config;
     }
 }
