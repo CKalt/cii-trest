@@ -30,6 +30,8 @@ import com.cii.model.config.Configuration;
 import com.cii.repository.NotificationRestRepository;
 import com.cii.repository.ConfigurationRestRepository;
 import com.cii.repository.UserRestRepository;
+import com.cii.model.negotiation.NegotiationAggregate;
+import com.cii.repository.NegotiationAggregateRestRepository;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -47,6 +49,9 @@ public class FilterAndPageRequestController {
 
     @Autowired
     ConfigurationRestRepository configurationRestRepository;
+
+    @Autowired
+    NegotiationAggregateRestRepository negotiationAggregateRestRepository;
 
 	@GetMapping("/userQuery")
     public Page<User> userQuery(
@@ -221,5 +226,13 @@ public class FilterAndPageRequestController {
                 @RequestParam(value = "id", defaultValue = "5cf55047643a1f0001f5cab6") String id) {
         Configuration config = configurationRestRepository.findById(id);
 		return config;
+    }
+
+	@GetMapping("/negotiationAggregates")
+    public List<NegotiationAggregate> negotiationAggregate() {
+        List<NegotiationAggregate> negotiationAggregates =
+            negotiationAggregateRestRepository.getAggregates();
+
+		return negotiationAggregates;
     }
 }
