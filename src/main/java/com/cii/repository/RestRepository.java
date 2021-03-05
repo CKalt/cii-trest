@@ -85,6 +85,21 @@ public class RestRepository<T extends ModelWithIdAccessInterface> {
         restEndPoint =  restDbHost + ":" + restDbPort;
     }
 
+    public <G> G doGetForGenericObject(String url, Class<G> responseType, Object... uriVariables) {
+        G obj = null;
+
+        try {
+            obj = rest.getForObject(url, responseType, uriVariables);
+        }
+        catch (HttpStatusCodeException ex) {
+            if (ex.getStatusCode() != HttpStatus.NOT_FOUND) {
+                throw ex;
+            }
+        }
+
+        return obj;
+    }
+
     public T doGetForObject(String url, Class<T> responseType, Object... uriVariables) {
         T obj = null;
 

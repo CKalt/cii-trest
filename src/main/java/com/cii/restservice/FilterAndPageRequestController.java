@@ -248,4 +248,12 @@ public class FilterAndPageRequestController {
 
 		return caseSearchAuditAggregates;
     }
+
+	@GetMapping("/caseSearchAuditAggregates/string")
+    public String caseSearchAuditAggregateString() {
+        String caseSearchAuditAggregationString =
+            caseSearchAuditAggregateRestRepository.getAggregatesString();
+
+		return caseSearchAuditAggregationString;
+    }
 }

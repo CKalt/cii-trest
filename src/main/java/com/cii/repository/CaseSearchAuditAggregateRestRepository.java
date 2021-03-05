@@ -24,4 +24,12 @@ public class CaseSearchAuditAggregateRestRepository extends RestRepository<CaseS
         List<CaseSearchAuditAggregate> caseSearchAuditAggregates = doGetEntityList(url, CaseSearchAuditAggregate[].class, debug);
         return caseSearchAuditAggregates;
     }
+
+	public String getAggregatesString() {
+        String url = collectionUrl() + "/string?debug={debug}";
+        boolean debug = true;
+        String caseSearchAuditAggregates = doGetForGenericObject(url, String.class, debug);
+
+        return caseSearchAuditAggregates;
+    }
 }
