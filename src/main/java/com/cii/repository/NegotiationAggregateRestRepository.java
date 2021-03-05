@@ -21,7 +21,7 @@ public class NegotiationAggregateRestRepository extends RestRepository<Negotiati
 	public List<NegotiationAggregate> getAggregates() {
         String url = collectionUrl() + "?debug={debug}";
         boolean debug = true;
-        List<NegotiationAggregate> jobAggregates = doGetEntityList(url, NegotiationAggregate[].class, debug);
-        return jobAggregates;
+        List<NegotiationAggregate> negotiationAggregates = doGetEntityList(url, NegotiationAggregate[].class, debug);
+        return negotiationAggregates;
     }
 }

@@ -32,6 +32,8 @@ import com.cii.repository.ConfigurationRestRepository;
 import com.cii.repository.UserRestRepository;
 import com.cii.model.negotiation.NegotiationAggregate;
 import com.cii.repository.NegotiationAggregateRestRepository;
+import com.cii.model.audit.CaseSearchAuditAggregate;
+import com.cii.repository.CaseSearchAuditAggregateRestRepository;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -52,6 +54,9 @@ public class FilterAndPageRequestController {
 
     @Autowired
     NegotiationAggregateRestRepository negotiationAggregateRestRepository;
+
+    @Autowired
+    CaseSearchAuditAggregateRestRepository caseSearchAuditAggregateRestRepository;
 
 	@GetMapping("/userQuery")
     public Page<User> userQuery(
@@ -234,5 +239,13 @@ public class FilterAndPageRequestController {
             negotiationAggregateRestRepository.getAggregates();
 
 		return negotiationAggregates;
+    }
+
+	@GetMapping("/caseSearchAuditAggregates")
+    public List<CaseSearchAuditAggregate> caseSearchAuditAggregate() {
+        List<CaseSearchAuditAggregate> caseSearchAuditAggregates =
+            caseSearchAuditAggregateRestRepository.getAggregates();
+
+		return caseSearchAuditAggregates;
     }
 }
