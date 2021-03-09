@@ -3,7 +3,6 @@ package com.cii.model.audit;
 import com.cii.bean.ModelWithIdAccess;
 
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.util.Date;
 import java.util.Map;

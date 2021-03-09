@@ -4,6 +4,7 @@ import java.text.ParseException;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.Date;
 import java.util.List;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.text.SimpleDateFormat;
 import java.text.DateFormat;
@@ -27,13 +28,15 @@ import com.cii.model.user.User;
 import com.cii.model.job.JobInfo;
 import com.cii.model.notification.Notification;
 import com.cii.model.config.Configuration;
+import com.cii.model.negotiation.NegotiationAggregate;
+import com.cii.model.negotiation.NegotiationWorkflowStateAggregate;
+import com.cii.model.audit.CaseSearchAuditAggregate;
 import com.cii.repository.NotificationRestRepository;
 import com.cii.repository.ConfigurationRestRepository;
 import com.cii.repository.UserRestRepository;
-import com.cii.model.negotiation.NegotiationAggregate;
 import com.cii.repository.NegotiationAggregateRestRepository;
-import com.cii.model.audit.CaseSearchAuditAggregate;
 import com.cii.repository.CaseSearchAuditAggregateRestRepository;
+import com.cii.repository.NegotiationWorkflowStateAggregateRestRepository;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -57,6 +60,10 @@ public class FilterAndPageRequestController {
 
     @Autowired
     CaseSearchAuditAggregateRestRepository caseSearchAuditAggregateRestRepository;
+
+    @Autowired
+    NegotiationWorkflowStateAggregateRestRepository
+            negotiationWorkflowStateAggregateRestRepository;
 
 	@GetMapping("/userQuery")
     public Page<User> userQuery(
@@ -255,5 +262,28 @@ public class FilterAndPageRequestController {
             caseSearchAuditAggregateRestRepository.getAggregatesString();
 
 		return caseSearchAuditAggregationString;
+    }
+
+	@GetMapping("/negotiationWorkflowStateAggregates")
+    public List<NegotiationWorkflowStateAggregate> negotiationWorkflowStateAggregate() {
+        String userId = "55ddb880032fb10755328fe2";
+        String courtId = "5b215f1c8b2c4aca8547fd33";
+        String caseType = "MEDIATION";
+        List<String> accessibleIds =
+            new ArrayList<String>(Arrays.asList(
+                new String[]{"mcop-med-6", "yc-med-1"}));
+
+        List<String> restrictedRoles = null;
+
+        List<NegotiationWorkflowStateAggregate> negotiationWorkflowStateAggregates =
+            negotiationWorkflowStateAggregateRestRepository.getAggregates(
+                        userId,
+                        courtId,
+                        caseType,
+                        accessibleIds,
+                        restrictedRoles
+                    );
+
+		return negotiationWorkflowStateAggregates;
     }
 }

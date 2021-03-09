@@ -3,7 +3,6 @@ package com.cii.repository;
 import java.net.URI;
 import java.util.Map;
 import java.util.Arrays;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -61,6 +60,11 @@ public class RestRepository<T extends ModelWithIdAccessInterface> {
     private String queryMethodUrl(String[] bindings) {
         String bindingStr = buildMethodBindingStr(bindings);
         return restEndPoint + "/" + singularForm + "Query" + bindingStr;
+    }
+
+    String aggregateMethodUrl(String[] bindings) {
+        String bindingStr = buildMethodBindingStr(bindings);
+        return restEndPoint + "/" + singularForm + "Aggregates" + bindingStr;
     }
 
     String locationUrl() {
