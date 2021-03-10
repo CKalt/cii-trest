@@ -52,6 +52,22 @@ public class RestRepository<T extends ModelWithIdAccessInterface> {
         return bindingStr;
     }
 
+    protected static String buildCsvList(List<String> items) {
+        if (items.isEmpty()) {
+            return "";
+        }
+
+        String csvList = "";
+        String sep = "";
+        for (String item : items) {
+            csvList = csvList + sep + item;
+            if (sep.isEmpty()) {
+                sep = ",";
+            }
+        }
+        return csvList;
+    }
+
     String searchMethodUrl(String verb, String... bindings) {
         String bindingStr = buildMethodBindingStr(bindings);
         return restEndPoint + "/" + pluralForm + "/search/" + verb + bindingStr;

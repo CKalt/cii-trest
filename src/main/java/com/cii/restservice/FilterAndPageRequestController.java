@@ -266,12 +266,22 @@ public class FilterAndPageRequestController {
 
 	@GetMapping("/negotiationWorkflowStateAggregates")
     public List<NegotiationWorkflowStateAggregate> negotiationWorkflowStateAggregate() {
-        String userId = "55ddb880032fb10755328fe2";
-        String courtId = "5b215f1c8b2c4aca8547fd33";
-        String caseType = "MEDIATION";
+        String userId = "5fcd3de1b61ca4d0bbfef891";
+        String courtId = "5afc3a5e3ae1050eca03bf15";
+        String caseType = "SOLICITOR_JUDGE";
         List<String> accessibleIds =
             new ArrayList<String>(Arrays.asList(
-                new String[]{"mcop-med-6", "yc-med-1"}));
+                new String[]{
+                    "gadcsc-ao-1",
+                    "gadcsc-ao-2",
+                    "gadcsc-ao-3",
+                    "gadcsc-ao-4",
+                    "gadcsc-ao-5",
+                    "gadcsc-ao-7",
+                    "gadcsc-ao-8",
+                    "gadcsc-ao-8a",
+                    "gadcsc-ao-10",
+                    "gadcsc-ao-9" }));
 
         List<String> restrictedRoles = null;
 

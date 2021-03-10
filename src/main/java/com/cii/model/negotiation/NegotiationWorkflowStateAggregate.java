@@ -7,20 +7,28 @@ import java.util.Map;
 
 @Document
 public class NegotiationWorkflowStateAggregate extends ModelWithIdAccess {
-    private Map<String,Object> groupKey;
-
+    private String workflowStateId;
     private int count;
 
+    /*
+    private Map<String,Object> groupKey;
     public Map<String,Object> getGroupKey() {
         return groupKey;
     }
-
     public String getWorkflowStateId() {
         return (String) this.groupKey.get("workflowStateId");
     }
-
     public void setGroupKey(Map<String,Object> groupKey) {
         this.groupKey = groupKey;
+    }
+    */
+
+    public String getWorkflowStateId() {
+        return workflowStateId;
+    }
+
+    public void setWorkflowStateId(String workflowStateId) {
+        this.workflowStateId = workflowStateId;
     }
 
     public int getCount() {

@@ -22,11 +22,14 @@ public class NegotiationWorkflowStateAggregateRestRepository extends RestReposit
              String userId,
              String courtId,
              String caseType,
-             List<String> accessibleIds,
+             List<String> accessibleIdList,
              List<String> restrictedRoles) {
-        String[] bindingNames = new String[]{"userId", "courtId","caseType",
+        String[] scalarBindingNames = new String[]{"userId", "courtId","caseType",
             "accessibleIds", "restrictedRoles"};
-        String url = aggregateMethodUrl(bindingNames);
+
+        String accessibleIds = buildCsvList(accessibleIdList);
+
+        String url = aggregateMethodUrl(scalarBindingNames);
         List<NegotiationWorkflowStateAggregate> negotiationWorkflowStateAggregates =
             doGetEntityList(url, NegotiationWorkflowStateAggregate[].class, 
                  userId,
