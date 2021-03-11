@@ -304,12 +304,23 @@ public class FilterAndPageRequestController {
 		return negotiationWorkflowStateAggregates;
     }
 
-	@GetMapping("/courtWorkflowSummary")
+	@GetMapping("/courtWorkflowSummaryAggregates")
     public List<WorkflowStateSummary> courtWorkflowSummary() {
         String urlKey = "GADCSC";
         List<WorkflowStateSummary> courtWorkflowSummaries =
             workflowStateSummaryAggregateRestRepository.getAggregates(urlKey);
 
 		return courtWorkflowSummaries;
+    }
+
+	@GetMapping("/userWorkflowSummaryAggregates")
+    public List<WorkflowStateSummary> userWorkflowSummary() {
+        String urlKey = "GADCSC";
+        String userId = "5fcd3de1b61ca4d0bbfef891";
+        List<WorkflowStateSummary> userWorkflowSummaries =
+            workflowStateSummaryAggregateRestRepository
+                .getAggregates(urlKey, userId);
+
+		return userWorkflowSummaries;
     }
 }

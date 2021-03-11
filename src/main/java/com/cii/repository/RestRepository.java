@@ -82,8 +82,13 @@ public class RestRepository<T extends ModelWithIdAccessInterface> {
     }
 
     String aggregateMethodUrl(String[] bindings) {
+        return aggregateMethodUrl(bindings, "");
+    }
+
+    String aggregateMethodUrl(String[] bindings, String prefix) {
         String bindingStr = buildMethodBindingStr(bindings);
-        return restEndPoint + "/" + singularForm + "Aggregates" + bindingStr;
+        return restEndPoint + "/" + prefix + singularForm + "Aggregates"
+            + bindingStr;
     }
 
     String locationUrl() {
