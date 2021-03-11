@@ -10,19 +10,6 @@ public class NegotiationWorkflowStateAggregate extends ModelWithIdAccess {
     private String workflowStateId;
     private int count;
 
-    /*
-    private Map<String,Object> groupKey;
-    public Map<String,Object> getGroupKey() {
-        return groupKey;
-    }
-    public String getWorkflowStateId() {
-        return (String) this.groupKey.get("workflowStateId");
-    }
-    public void setGroupKey(Map<String,Object> groupKey) {
-        this.groupKey = groupKey;
-    }
-    */
-
     public String getWorkflowStateId() {
         return workflowStateId;
     }

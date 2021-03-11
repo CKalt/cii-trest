@@ -53,6 +53,9 @@ public class RestRepository<T extends ModelWithIdAccessInterface> {
     }
 
     protected static String buildCsvList(List<String> items) {
+        if (items == null) {
+            return null;
+        }
         if (items.isEmpty()) {
             return "";
         }
