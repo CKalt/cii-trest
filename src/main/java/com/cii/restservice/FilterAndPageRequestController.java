@@ -323,4 +323,13 @@ public class FilterAndPageRequestController {
 
 		return userWorkflowSummaries;
     }
+
+	@GetMapping("/allWorkflowSummaryAggregates")
+    public List<WorkflowStateSummary> allWorkflowSummary() {
+        List<WorkflowStateSummary> allWorkflowSummaries =
+            workflowStateSummaryAggregateRestRepository
+                .getAggregates();
+
+		return allWorkflowSummaries;
+    }
 }

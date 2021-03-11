@@ -33,4 +33,13 @@ public class WorkflowStateSummaryAggregateRestRepository extends RestRepository<
                     userId);
         return userWorkflowSummaryAggregates;
     }
+
+	public List<WorkflowStateSummary> getAggregates() {
+        String[] bindingNames = new String[]{};
+
+        String url = aggregateMethodUrl(bindingNames, "all");
+        List<WorkflowStateSummary> allWorkflowSummaryAggregates =
+            doGetEntityList(url, WorkflowStateSummary[].class);
+        return allWorkflowSummaryAggregates;
+    }
 }
