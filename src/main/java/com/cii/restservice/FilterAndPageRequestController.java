@@ -31,12 +31,15 @@ import com.cii.model.config.Configuration;
 import com.cii.model.negotiation.NegotiationAggregate;
 import com.cii.model.negotiation.NegotiationWorkflowStateAggregate;
 import com.cii.model.audit.CaseSearchAuditAggregate;
+import com.cii.model.court.WorkflowStateSummary;
+
 import com.cii.repository.NotificationRestRepository;
 import com.cii.repository.ConfigurationRestRepository;
 import com.cii.repository.UserRestRepository;
 import com.cii.repository.NegotiationAggregateRestRepository;
 import com.cii.repository.CaseSearchAuditAggregateRestRepository;
 import com.cii.repository.NegotiationWorkflowStateAggregateRestRepository;
+import com.cii.repository.WorkflowStateSummaryAggregateRestRepository;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -64,6 +67,10 @@ public class FilterAndPageRequestController {
     @Autowired
     NegotiationWorkflowStateAggregateRestRepository
             negotiationWorkflowStateAggregateRestRepository;
+
+    @Autowired
+    WorkflowStateSummaryAggregateRestRepository
+            workflowStateSummaryAggregateRestRepository;
 
 	@GetMapping("/userQuery")
     public Page<User> userQuery(
@@ -295,5 +302,14 @@ public class FilterAndPageRequestController {
                     );
 
 		return negotiationWorkflowStateAggregates;
+    }
+
+	@GetMapping("/courtWorkflowSummary")
+    public List<WorkflowStateSummary> courtWorkflowSummary() {
+        String urlKey = "GADCSC";
+        List<WorkflowStateSummary> courtWorkflowSummaries =
+            workflowStateSummaryAggregateRestRepository.getAggregates(urlKey);
+
+		return courtWorkflowSummaries;
     }
 }

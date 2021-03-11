@@ -4,9 +4,10 @@ import java.util.Date;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import com.cii.bean.ModelWithIdAccess;
 
 @Document(collection = "workflowStateSummary")
-public class WorkflowStateSummary {
+public class WorkflowStateSummary extends ModelWithIdAccess {
 	@Id
 	private String id;
 	private String urlKey;
