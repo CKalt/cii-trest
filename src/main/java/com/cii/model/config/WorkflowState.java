@@ -21,6 +21,17 @@ public class WorkflowState {
 	private boolean endState;
 	private List<StateListener> listeners;
 	private List<EventData> events;
+	private boolean excludedFromCount;
+
+	public boolean isExcludedFromCount() {
+		return excludedFromCount;
+	}
+
+	public void setExcludedFromCount(boolean excludedFromCount) {
+		this.excludedFromCount = excludedFromCount;
+	}
+
+	public WorkflowState() {}
 	
 	public Map<String, List<String>> getAccess() {
 		return access;

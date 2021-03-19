@@ -48,6 +48,10 @@ public class EventData {
     private boolean pdfFormSubCaseRequest;
     private boolean partyAnswer;
     private boolean sendDataToBCC;
+    private int maxAmountCasesInProgress;
+    private String finePayee;
+    private boolean advancePartyOptedInWfs;
+
 
     public String getConfigurationId() {
         return configurationId;
@@ -369,5 +373,29 @@ public class EventData {
 
     public void setSendDataToBCC(boolean sendDataToBCC) {
         this.sendDataToBCC = sendDataToBCC;
+    }
+
+    public int getMaxAmountCasesInProgress() {
+        return maxAmountCasesInProgress;
+    }
+
+    public void setMaxAmountCasesInProgress(int maxAmountCasesInProgress) {
+        this.maxAmountCasesInProgress = maxAmountCasesInProgress;
+    }
+
+    public String getFinePayee() {
+        return finePayee;
+    }
+
+    public void setFinePayee(String finePayee) {
+        this.finePayee = finePayee;
+    }
+
+    public boolean isAdvancePartyOptedInWfs() {
+        return advancePartyOptedInWfs;
+    }
+
+    public void setAdvancePartyOptedInWfs(boolean advancePartyOptedInWfs) {
+        this.advancePartyOptedInWfs = advancePartyOptedInWfs;
     }
 }

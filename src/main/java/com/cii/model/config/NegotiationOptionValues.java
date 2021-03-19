@@ -15,7 +15,13 @@ public class NegotiationOptionValues {
     protected String offerStateCode;
     protected String offerLocalCode;
     protected String offerCaption;
+
     protected String offerFineString;
+    protected String offerFineString1;
+    protected String offerFineString2;
+    protected String offerFineString3;
+    protected String offerFineString4;
+    protected String offerFineString5;
 
     protected Boolean trafficSchool;
 
@@ -94,9 +100,13 @@ public class NegotiationOptionValues {
 
     protected Map<String, Object> options;
 
-
     private List<FileInformation> fileInformationList;
     private boolean hasFileToUpload;
+    private boolean hasFileToUpload1;
+    private boolean hasFileToUpload2;
+    private boolean hasFileToUpload3;
+    private boolean hasFileToUpload4;
+    private boolean hasFileToUpload5;
 
     private String status1;
     private String status2;
@@ -105,6 +115,22 @@ public class NegotiationOptionValues {
     private String status5;
     private String status6;
     private String status7;
+
+    private String pleaType1;
+    private String pleaType2;
+    private String pleaType3;
+    private String pleaType4;
+    private String pleaType5;
+    private String pleaType6;
+    private String pleaType7;
+    private String pleaType8;
+    private String pleaType9;
+    private String pleaType10;
+    private String pleaType11;
+    private String pleaType12;
+    private String pleaType13;
+    private String pleaType14;
+    private String pleaType15;
 
     private String description1;
     private String description2;
@@ -188,6 +214,22 @@ public class NegotiationOptionValues {
     private String offer13;
     private String offer14;
     private String offer15;
+
+    private String chargeId1;
+    private String chargeId2;
+    private String chargeId3;
+    private String chargeId4;
+    private String chargeId5;
+    private String chargeId6;
+    private String chargeId7;
+    private String chargeId8;
+    private String chargeId9;
+    private String chargeId10;
+    private String chargeId11;
+    private String chargeId12;
+    private String chargeId13;
+    private String chargeId14;
+    private String chargeId15;
 
     private String customDropdown1;
     private String customDropdown2;
@@ -360,6 +402,46 @@ public class NegotiationOptionValues {
 
     public void setOfferFineString(String fineString) {
         this.offerFineString = fineString;
+    }
+
+    public String getOfferFineString1() {
+        return offerFineString1;
+    }
+
+    public void setOfferFineString1(String offerFineString1) {
+        this.offerFineString1 = offerFineString1;
+    }
+
+    public String getOfferFineString2() {
+        return offerFineString2;
+    }
+
+    public void setOfferFineString2(String offerFineString2) {
+        this.offerFineString2 = offerFineString2;
+    }
+
+    public String getOfferFineString3() {
+        return offerFineString3;
+    }
+
+    public void setOfferFineString3(String offerFineString3) {
+        this.offerFineString3 = offerFineString3;
+    }
+
+    public String getOfferFineString4() {
+        return offerFineString4;
+    }
+
+    public void setOfferFineString4(String offerFineString4) {
+        this.offerFineString4 = offerFineString4;
+    }
+
+    public String getOfferFineString5() {
+        return offerFineString5;
+    }
+
+    public void setOfferFineString5(String offerFineString5) {
+        this.offerFineString5 = offerFineString5;
     }
 
     public Integer getOfferPoints() {
@@ -822,12 +904,52 @@ public class NegotiationOptionValues {
         this.options = options;
     }
 
-    public boolean getHasFileToUpload() {
+    public boolean isHasFileToUpload() {
         return hasFileToUpload;
     }
 
     public void setHasFileToUpload(boolean hasFileToUpload) {
         this.hasFileToUpload = hasFileToUpload;
+    }
+
+    public boolean isHasFileToUpload1() {
+        return hasFileToUpload1;
+    }
+
+    public void setHasFileToUpload1(boolean hasFileToUpload1) {
+        this.hasFileToUpload1 = hasFileToUpload1;
+    }
+
+    public boolean isHasFileToUpload2() {
+        return hasFileToUpload2;
+    }
+
+    public void setHasFileToUpload2(boolean hasFileToUpload2) {
+        this.hasFileToUpload2 = hasFileToUpload2;
+    }
+
+    public boolean isHasFileToUpload3() {
+        return hasFileToUpload3;
+    }
+
+    public void setHasFileToUpload3(boolean hasFileToUpload3) {
+        this.hasFileToUpload3 = hasFileToUpload3;
+    }
+
+    public boolean isHasFileToUpload4() {
+        return hasFileToUpload4;
+    }
+
+    public void setHasFileToUpload4(boolean hasFileToUpload4) {
+        this.hasFileToUpload4 = hasFileToUpload4;
+    }
+
+    public boolean isHasFileToUpload5() {
+        return hasFileToUpload5;
+    }
+
+    public void setHasFileToUpload5(boolean hasFileToUpload5) {
+        this.hasFileToUpload5 = hasFileToUpload5;
     }
 
     public List<FileInformation> getFileInformationList() {
@@ -1040,6 +1162,14 @@ public class NegotiationOptionValues {
 
     public void setOtherText(List<String> otherText) {
         this.otherText = otherText;
+    }
+
+    public String getSignatureSvg() {
+        return signatureSvg0;
+    }
+
+    public void setSignatureSvg(String signatureSvg) {
+        this.signatureSvg0 = signatureSvg;
     }
 
     public String getSignatureName() {
@@ -2224,5 +2354,245 @@ public class NegotiationOptionValues {
 
     public void setCustomNumberInput15(String customNumberInput15) {
         this.customNumberInput15 = customNumberInput15;
+    }
+
+    public String getChargeId1() {
+        return chargeId1;
+    }
+
+    public void setChargeId1(String chargeId1) {
+        this.chargeId1 = chargeId1;
+    }
+
+    public String getChargeId2() {
+        return chargeId2;
+    }
+
+    public void setChargeId2(String chargeId2) {
+        this.chargeId2 = chargeId2;
+    }
+
+    public String getChargeId3() {
+        return chargeId3;
+    }
+
+    public void setChargeId3(String chargeId3) {
+        this.chargeId3 = chargeId3;
+    }
+
+    public String getChargeId4() {
+        return chargeId4;
+    }
+
+    public void setChargeId4(String chargeId4) {
+        this.chargeId4 = chargeId4;
+    }
+
+    public String getChargeId5() {
+        return chargeId5;
+    }
+
+    public void setChargeId5(String chargeId5) {
+        this.chargeId5 = chargeId5;
+    }
+
+    public String getChargeId6() {
+        return chargeId6;
+    }
+
+    public void setChargeId6(String chargeId6) {
+        this.chargeId6 = chargeId6;
+    }
+
+    public String getChargeId7() {
+        return chargeId7;
+    }
+
+    public void setChargeId7(String chargeId7) {
+        this.chargeId7 = chargeId7;
+    }
+
+    public String getChargeId8() {
+        return chargeId8;
+    }
+
+    public void setChargeId8(String chargeId8) {
+        this.chargeId8 = chargeId8;
+    }
+
+    public String getChargeId9() {
+        return chargeId9;
+    }
+
+    public void setChargeId9(String chargeId9) {
+        this.chargeId9 = chargeId9;
+    }
+
+    public String getChargeId10() {
+        return chargeId10;
+    }
+
+    public void setChargeId10(String chargeId10) {
+        this.chargeId10 = chargeId10;
+    }
+
+    public String getChargeId11() {
+        return chargeId11;
+    }
+
+    public void setChargeId11(String chargeId11) {
+        this.chargeId11 = chargeId11;
+    }
+
+    public String getChargeId12() {
+        return chargeId12;
+    }
+
+    public void setChargeId12(String chargeId12) {
+        this.chargeId12 = chargeId12;
+    }
+
+    public String getChargeId13() {
+        return chargeId13;
+    }
+
+    public void setChargeId13(String chargeId13) {
+        this.chargeId13 = chargeId13;
+    }
+
+    public String getChargeId14() {
+        return chargeId14;
+    }
+
+    public void setChargeId14(String chargeId14) {
+        this.chargeId14 = chargeId14;
+    }
+
+    public String getChargeId15() {
+        return chargeId15;
+    }
+
+    public void setChargeId15(String chargeId15) {
+        this.chargeId15 = chargeId15;
+    }
+
+    public String getPleaType1() {
+        return pleaType1;
+    }
+
+    public void setPleaType1(String pleaType1) {
+        this.pleaType1 = pleaType1;
+    }
+
+    public String getPleaType2() {
+        return pleaType2;
+    }
+
+    public void setPleaType2(String pleaType2) {
+        this.pleaType2 = pleaType2;
+    }
+
+    public String getPleaType3() {
+        return pleaType3;
+    }
+
+    public void setPleaType3(String pleaType3) {
+        this.pleaType3 = pleaType3;
+    }
+
+    public String getPleaType4() {
+        return pleaType4;
+    }
+
+    public void setPleaType4(String pleaType4) {
+        this.pleaType4 = pleaType4;
+    }
+
+    public String getPleaType5() {
+        return pleaType5;
+    }
+
+    public void setPleaType5(String pleaType5) {
+        this.pleaType5 = pleaType5;
+    }
+
+    public String getPleaType6() {
+        return pleaType6;
+    }
+
+    public void setPleaType6(String pleaType6) {
+        this.pleaType6 = pleaType6;
+    }
+
+    public String getPleaType7() {
+        return pleaType7;
+    }
+
+    public void setPleaType7(String pleaType7) {
+        this.pleaType7 = pleaType7;
+    }
+
+    public String getPleaType8() {
+        return pleaType8;
+    }
+
+    public void setPleaType8(String pleaType8) {
+        this.pleaType8 = pleaType8;
+    }
+
+    public String getPleaType9() {
+        return pleaType9;
+    }
+
+    public void setPleaType9(String pleaType9) {
+        this.pleaType9 = pleaType9;
+    }
+
+    public String getPleaType10() {
+        return pleaType10;
+    }
+
+    public void setPleaType10(String pleaType10) {
+        this.pleaType10 = pleaType10;
+    }
+
+    public String getPleaType11() {
+        return pleaType11;
+    }
+
+    public void setPleaType11(String pleaType11) {
+        this.pleaType11 = pleaType11;
+    }
+
+    public String getPleaType12() {
+        return pleaType12;
+    }
+
+    public void setPleaType12(String pleaType12) {
+        this.pleaType12 = pleaType12;
+    }
+
+    public String getPleaType13() {
+        return pleaType13;
+    }
+
+    public void setPleaType13(String pleaType13) {
+        this.pleaType13 = pleaType13;
+    }
+
+    public String getPleaType14() {
+        return pleaType14;
+    }
+
+    public void setPleaType14(String pleaType14) {
+        this.pleaType14 = pleaType14;
+    }
+
+    public String getPleaType15() {
+        return pleaType15;
+    }
+
+    public void setPleaType15(String pleaType15) {
+        this.pleaType15 = pleaType15;
     }
 }

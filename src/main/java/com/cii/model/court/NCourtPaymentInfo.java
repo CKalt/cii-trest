@@ -5,6 +5,7 @@ public class NCourtPaymentInfo {
     private String password;
     private String guid;
     private String ncourtUrl;
+    private boolean defaultPayee;
 
     public String getUserName() {
         return userName;
@@ -36,5 +37,13 @@ public class NCourtPaymentInfo {
 
     public void setNcourtUrl(String ncourtUrl) {
         this.ncourtUrl = ncourtUrl;
+    }
+
+    public boolean isDefaultPayee() {
+        return defaultPayee;
+    }
+
+    public void setDefaultPayee(boolean defaultPayee) {
+        this.defaultPayee = defaultPayee;
     }
 }

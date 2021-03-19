@@ -23,6 +23,7 @@ public abstract class Question extends QuestionVisitor {
     private String dateFormat;
     private boolean useConditional;
     private boolean useNegotiationData;
+    protected boolean partyIndexQuestion;
 
     private Map<String, List<String>> access;
 
@@ -156,5 +157,13 @@ public abstract class Question extends QuestionVisitor {
 
     public void setUseNegotiationData(boolean useNegotiationData) {
         this.useNegotiationData = useNegotiationData;
+    }
+
+    public boolean isPartyIndexQuestion() {
+        return partyIndexQuestion;
+    }
+
+    public void setPartyIndexQuestion(boolean partyIndexQuestion) {
+        this.partyIndexQuestion = partyIndexQuestion;
     }
 }

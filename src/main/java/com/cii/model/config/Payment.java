@@ -20,6 +20,7 @@ public class Payment {
     private boolean useMatterhornPayee;
     private boolean useHcsPayments = false;
     private boolean showInModal;
+    private boolean useSubcases;
     private String url;
 
     public String getStatus() {
@@ -156,5 +157,13 @@ public class Payment {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public boolean isUseSubcases() {
+        return useSubcases;
+    }
+
+    public void setUseSubcases(boolean useSubcases) {
+        this.useSubcases = useSubcases;
     }
 }

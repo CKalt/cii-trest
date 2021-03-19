@@ -7,6 +7,7 @@ public class FileUploadOption extends NegotiationOption {
 	private String label = "";
 	private Map<String, List<String>> access;
 	private boolean hasToken;
+	private int index = 0;
 
 	public String getLabel() {
 		return label;
@@ -31,4 +32,12 @@ public class FileUploadOption extends NegotiationOption {
 	public void setHasToken(boolean hasToken) {
 		this.hasToken = hasToken;
 	}
+
+	public int getIndex() {
+       return this. index;
+    }
+
+    public void setIndex(int index) {
+        this.index = index;
+    }
 }

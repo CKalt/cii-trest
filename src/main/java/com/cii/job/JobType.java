@@ -49,6 +49,7 @@ public enum JobType {
 	AZ_CSV_IMPORT_SFTP("AZ CSV Import SFTP"),
 	TPLEAS_IMPORT("TPLEAS Import"),
 	GAGCRC_IMPORT_JOB("GAGCRC Import Job"),
+	RESEARCH_SURVEY_JOB("Research Survey Job"),
 	IOWA_SURVEY_JOB("Iowa Research Survey"),
 	HCS_TRANSACTION_RENEWAL("HCS Transaction Id Renewal"),
 	GADCSC_GET_DOCUMENTS_JOB("GADCSC Put Documents in History Item Job"),
@@ -56,7 +57,13 @@ public enum JobType {
 	DEJPCOURT_IMPORT("DEJPCourt Import Job"),
 	MANUAL_CASE_SEARCH("Manual Case Search"),
     GADCMC_PDF_EXPORT("GADCMC PDF EXPORT"),
-	VAD19_IMPORT("VAD19 Import Job");
+	VAD19_IMPORT("VAD19 Import Job"),
+	MultiParty_PDF_Export("MultiPartyPDFExportJob"),
+    GACCTC_IMPORT_JOB("GACCTC Import Job"),
+	EQUIVANT_IMPORT("Equivant Traffic Import Job"),
+	CCR4PEACE_EXPORT("CCR4PEACE EXPORT"),
+    REFRESH_SOLR("Refresh SOLR Job"),
+	EMAIL_NEW_REGISTRATIONS("Email New Registrations");
 
     private String formattedName;
 

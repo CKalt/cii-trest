@@ -1,8 +1,8 @@
 package com.cii.model.user;
 
-import java.util.*;
-
 import com.cii.bean.ModelWithIdAccess;
+
+import java.util.*;
 
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -38,6 +38,7 @@ public class User extends ModelWithIdAccess {
 	private Date lastLogin;
 	private ArrayList<responseTemplate> templates;
 	private Map<String, Object> settings;
+    private Map<String, Object> mediatorAnswers;
 
 	private String temporaryUsername;
 	private String temporaryPhone;
@@ -60,10 +61,15 @@ public class User extends ModelWithIdAccess {
 
 	private String judgeName;
 	private String zoomUserId;
+    private Date mediatorApplicationDate;
 
+    private String courtsApplied;
+
+    private String caseTypesApplied;
+
+    private Map<String, List<String>> caseTypeSurveyAnswers;
 	
-	public User() {
-	}
+	public User() { }
 	
 	public String getId() {
 		return id;
@@ -396,4 +402,45 @@ public class User extends ModelWithIdAccess {
 	public void setZoomUserId(String zoomUserId) {
 		this.zoomUserId = zoomUserId;
 	}
+
+
+        public Map<String, Object> getMediatorAnswers() {
+        return mediatorAnswers;
+    }
+
+    public void setMediatorAnswers(Map<String, Object> mediatorAnswers) {
+        this.mediatorAnswers = mediatorAnswers;
+    }
+
+    public Date getMediatorApplicationDate() {
+        return mediatorApplicationDate;
+    }
+
+    public void setMediatorApplicationDate(Date mediatorApplicationDate) {
+        this.mediatorApplicationDate = mediatorApplicationDate;
+    }
+
+    public String getCourtsApplied() {
+        return courtsApplied;
+    }
+
+    public void setCourtsApplied(String courtsApplied) {
+        this.courtsApplied = courtsApplied;
+    }
+
+    public String getCaseTypesApplied() {
+        return caseTypesApplied;
+    }
+
+    public void setCaseTypesApplied(String caseTypesApplied) {
+        this.caseTypesApplied = caseTypesApplied;
+    }
+
+    public Map<String, List<String>> getCaseTypeSurveyAnswers() {
+        return caseTypeSurveyAnswers;
+    }
+
+    public void setCaseTypeSurveyAnswers(Map<String, List<String>> caseTypeSurveyAnswers) {
+        this.caseTypeSurveyAnswers = caseTypeSurveyAnswers;
+    }
 }

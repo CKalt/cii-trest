@@ -8,6 +8,7 @@ public class SignatureOption extends NegotiationOption {
 	private boolean showForm = true;
 	private boolean signatureRequired = true;
 	private boolean nameRequired = true;
+	private boolean isPNG;
 
 	public String getCaption() {
 		return caption;
@@ -63,5 +64,13 @@ public class SignatureOption extends NegotiationOption {
 
 	public void setShowForm(boolean showForm) {
 		this.showForm = showForm;
+	}
+
+	public boolean isPNG() {
+		return isPNG;
+	}
+
+	public void setPNG(boolean PNG) {
+		isPNG = PNG;
 	}
 }

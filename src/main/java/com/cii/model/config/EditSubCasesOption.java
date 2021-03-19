@@ -6,9 +6,15 @@ import java.util.*;
 public class EditSubCasesOption extends NegotiationOption {
     private List<String> columns;
 
+    private Map<String, String> titles;
+
     private List<Dropdown> offers;
 
     private List<Dropdown> descriptions;
+
+    private List<CustomDropdown> pleaTypes;
+
+    private List<Dropdown> statutes;
 
     private List<CustomDropdown> customDropdown;
 
@@ -23,6 +29,8 @@ public class EditSubCasesOption extends NegotiationOption {
     private String workFlowStateId;
 
     private boolean moveWFS;
+
+    private boolean hasCustomStatute;
 
     private String moveWFSStatusValue;
 
@@ -41,6 +49,7 @@ public class EditSubCasesOption extends NegotiationOption {
     private String customDropdownLabel;
     private String customNumberInputLabel;
     private boolean customNumberInputIsInDollars;
+    private boolean hasCustomDescription;
 
     public List<String> getColumns() {
         return columns;
@@ -232,5 +241,45 @@ public class EditSubCasesOption extends NegotiationOption {
 
     public void setCustomNumberInputIsInDollars(boolean customNumberInputIsInDollars) {
         this.customNumberInputIsInDollars = customNumberInputIsInDollars;
+    }
+
+    public List<CustomDropdown> getPleaTypes() {
+        return pleaTypes;
+    }
+
+    public void setPleaTypes(List<CustomDropdown> pleaTypes) {
+        this.pleaTypes = pleaTypes;
+    }
+
+    public Map<String, String> getTitles() {
+        return titles;
+    }
+
+    public void setTitles(Map<String, String> titles) {
+        this.titles = titles;
+    }
+
+    public List<Dropdown> getStatutes() {
+        return statutes;
+    }
+
+    public void setStatutes(List<Dropdown> statutes) {
+        this.statutes = statutes;
+    }
+
+    public boolean isHasCustomStatute() {
+        return hasCustomStatute;
+    }
+
+    public void setHasCustomStatute(boolean hasCustomStatute) {
+        this.hasCustomStatute = hasCustomStatute;
+    }
+
+    public boolean isHasCustomDescription() {
+        return hasCustomDescription;
+    }
+
+    public void setHasCustomDescription(boolean hasCustomDescription) {
+        this.hasCustomDescription = hasCustomDescription;
     }
 }

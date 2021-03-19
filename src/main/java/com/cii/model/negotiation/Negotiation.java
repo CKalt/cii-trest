@@ -2,6 +2,7 @@ package com.cii.model.negotiation;
 
 import com.cii.jwt.JwtClaim;
 import com.cii.model.config.NegotiationOptionValues;
+import com.cii.bean.ModelWithIdAccess;
 import com.cii.model.incident.Incident;
 import com.cii.model.payment.PaymentStub;
 import com.cii.model.sos.SosResponse;
@@ -14,7 +15,7 @@ import java.util.Date;
 import java.util.List;
 
 @Document
-public class Negotiation {
+public class Negotiation extends ModelWithIdAccess {
   
     @Id
     protected String id;
@@ -30,6 +31,7 @@ public class Negotiation {
     protected String workflowStateId;
     protected Incident incident;
     protected SosResponse dmvInfo;
+    private String configType;
     protected String caseType;
     private JwtClaim defendantToken;
     private JwtClaim paymentToken;
@@ -273,6 +275,14 @@ public class Negotiation {
 
     public void setPaymentToken(JwtClaim paymentToken) {
         this.paymentToken = paymentToken;
+    }
+
+    public String getConfigType() {
+        return configType;
+    }
+
+    public void setConfigType(String configType) {
+        this.configType = configType;
     }
 
     public String getHandle() {

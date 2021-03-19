@@ -13,6 +13,7 @@ public class FileInformation {
     private long fileSize;
     private String urlKey;
     private Date uploaded;
+    private int optionIndex;
     
     public String getFileName() {
         return fileName;
@@ -68,5 +69,13 @@ public class FileInformation {
 
     public void setUploaded(Date uploaded) {
         this.uploaded = uploaded;
+    }
+
+    public int getOptionIndex() {
+        return optionIndex;
+    }
+
+    public void setOptionIndex(int optionIndex) {
+        this.optionIndex = optionIndex;
     }
 }
