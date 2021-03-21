@@ -1,7 +1,6 @@
 package com.cii.restservice;
 
 import java.text.ParseException;
-import java.util.concurrent.atomic.AtomicLong;
 import java.util.Date;
 import java.util.List;
 import java.util.ArrayList;
@@ -17,8 +16,6 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.http.*;
 import org.springframework.web.client.HttpStatusCodeException;
 import org.springframework.data.domain.Sort;
-import org.springframework.data.domain.Sort.Order;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Page;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.beans.factory.annotation.Autowired;
