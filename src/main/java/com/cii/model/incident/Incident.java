@@ -169,6 +169,8 @@ public class Incident {
 
     List<String> relatedCases;
 
+    private String customCaseNumber;
+
     public String getId() {
         return id;
     }
@@ -1320,5 +1322,13 @@ public class Incident {
 
     public void setPrincipalClaimAmount(String principalClaimAmount) {
         this.principalClaimAmount = principalClaimAmount;
+    }
+
+    public String getCustomCaseNumber() {
+        return customCaseNumber;
+    }
+
+    public void setCustomCaseNumber(String customCaseNumber) {
+        this.customCaseNumber = customCaseNumber;
     }
 }

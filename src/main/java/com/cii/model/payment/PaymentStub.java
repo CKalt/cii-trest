@@ -25,6 +25,7 @@ public class PaymentStub {
     private List<String> approvalText;
     private Date transactionIdCreated;
     private JwtClaim returnToken;
+    private boolean subCasePayment;
 
     public String getPartyType() {
         return partyType;
@@ -168,6 +169,14 @@ public class PaymentStub {
 
     public void setReturnToken(JwtClaim returnToken) {
         this.returnToken = returnToken;
+    }
+
+    public boolean isSubCasePayment() {
+        return subCasePayment;
+    }
+
+    public void setSubCasePayment(boolean subCasePayment) {
+        this.subCasePayment = subCasePayment;
     }
 }
 

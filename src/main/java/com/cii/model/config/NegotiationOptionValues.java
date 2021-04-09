@@ -132,6 +132,22 @@ public class NegotiationOptionValues {
     private String pleaType14;
     private String pleaType15;
 
+    private String dispositionCode1;
+    private String dispositionCode2;
+    private String dispositionCode3;
+    private String dispositionCode4;
+    private String dispositionCode5;
+    private String dispositionCode6;
+    private String dispositionCode7;
+    private String dispositionCode8;
+    private String dispositionCode9;
+    private String dispositionCode10;
+    private String dispositionCode11;
+    private String dispositionCode12;
+    private String dispositionCode13;
+    private String dispositionCode14;
+    private String dispositionCode15;
+
     private String description1;
     private String description2;
     private String description3;
@@ -2594,5 +2610,125 @@ public class NegotiationOptionValues {
 
     public void setPleaType15(String pleaType15) {
         this.pleaType15 = pleaType15;
+    }
+
+    public String getDispositionCode1() {
+        return dispositionCode1;
+    }
+
+    public void setDispositionCode1(String dispositionCode1) {
+        this.dispositionCode1 = dispositionCode1;
+    }
+
+    public String getDispositionCode2() {
+        return dispositionCode2;
+    }
+
+    public void setDispositionCode2(String dispositionCode2) {
+        this.dispositionCode2 = dispositionCode2;
+    }
+
+    public String getDispositionCode3() {
+        return dispositionCode3;
+    }
+
+    public void setDispositionCode3(String dispositionCode3) {
+        this.dispositionCode3 = dispositionCode3;
+    }
+
+    public String getDispositionCode4() {
+        return dispositionCode4;
+    }
+
+    public void setDispositionCode4(String dispositionCode4) {
+        this.dispositionCode4 = dispositionCode4;
+    }
+
+    public String getDispositionCode5() {
+        return dispositionCode5;
+    }
+
+    public void setDispositionCode5(String dispositionCode5) {
+        this.dispositionCode5 = dispositionCode5;
+    }
+
+    public String getDispositionCode6() {
+        return dispositionCode6;
+    }
+
+    public void setDispositionCode6(String dispositionCode6) {
+        this.dispositionCode6 = dispositionCode6;
+    }
+
+    public String getDispositionCode7() {
+        return dispositionCode7;
+    }
+
+    public String getDispositionCode8() {
+        return dispositionCode8;
+    }
+
+    public void setDispositionCode8(String dispositionCode8) {
+        this.dispositionCode8 = dispositionCode8;
+    }
+
+    public String getDispositionCode9() {
+        return dispositionCode9;
+    }
+
+    public void setDispositionCode9(String dispositionCode9) {
+        this.dispositionCode9 = dispositionCode9;
+    }
+
+    public String getDispositionCode10() {
+        return dispositionCode10;
+    }
+
+    public void setDispositionCode10(String dispositionCode10) {
+        this.dispositionCode10 = dispositionCode10;
+    }
+
+    public String getDispositionCode11() {
+        return dispositionCode11;
+    }
+
+    public void setDispositionCode11(String dispositionCode11) {
+        this.dispositionCode11 = dispositionCode11;
+    }
+
+    public String getDispositionCode12() {
+        return dispositionCode12;
+    }
+
+    public void setDispositionCode12(String dispositionCode12) {
+        this.dispositionCode12 = dispositionCode12;
+    }
+
+    public String getDispositionCode13() {
+        return dispositionCode13;
+    }
+
+    public void setDispositionCode13(String dispositionCode13) {
+        this.dispositionCode13 = dispositionCode13;
+    }
+
+    public String getDispositionCode14() {
+        return dispositionCode14;
+    }
+
+    public void setDispositionCode14(String dispositionCode14) {
+        this.dispositionCode14 = dispositionCode14;
+    }
+
+    public String getDispositionCode15() {
+        return dispositionCode15;
+    }
+
+    public void setDispositionCode15(String dispositionCode15) {
+        this.dispositionCode15 = dispositionCode15;
+    }
+
+    public void setDispositionCode7(String dispositionCode7) {
+        this.dispositionCode7 = dispositionCode7;
     }
 }
