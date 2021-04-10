@@ -25,11 +25,13 @@ import com.cii.model.user.User;
 import com.cii.model.job.JobInfo;
 import com.cii.model.notification.Notification;
 import com.cii.model.config.Configuration;
+import com.cii.model.negotiation.Negotiation;
 import com.cii.model.negotiation.NegotiationAggregate;
 import com.cii.model.negotiation.NegotiationWorkflowStateAggregate;
 import com.cii.model.audit.CaseSearchAuditAggregate;
 import com.cii.model.court.WorkflowStateSummary;
 
+import com.cii.repository.NegotiationRestRepository;
 import com.cii.repository.NotificationRestRepository;
 import com.cii.repository.ConfigurationRestRepository;
 import com.cii.repository.UserRestRepository;
@@ -48,6 +50,9 @@ public class FilterAndPageRequestController {
 
     @Autowired
     UserRestRepository userRestRepository;
+
+    @Autowired
+    NegotiationRestRepository negotiationRestRepository;
 
     @Autowired
     NotificationRestRepository notificationRestRepository;
@@ -328,5 +333,29 @@ public class FilterAndPageRequestController {
                 .getAggregates();
 
 		return allWorkflowSummaries;
+    }
+	@GetMapping("/negotiationQuery")
+    public Page<Negotiation> negotiationQuery(
+                @RequestParam(value = "urlKey", defaultValue = "GADCSC") String urlKey) {
+         // emulate call to ciinew:
+        // FilterableNegotiationCommand::doFiltering(NegotiationService negotiationService, Court court, User user, String wfs)
+
+        FilterAndPageRequest fprq = new FilterAndPageRequest();
+        fprq.addOp("andQNegotiationUrlKeyEq", urlKey);
+        fprq.addOp("sortDirection", "DESC");
+        fprq.addOp("sortByItem", "createDate");
+        fprq.addPageRequestOp(0, 50);  // (pageIndex, PageSize)
+        fprq.addOp("sortDirection", "DESC");
+        fprq.addOp("sortByItem", "createDate");
+
+        FilterAndPageRequest thisFprq = new FilterAndPageRequest();
+        thisFprq.addOp("orNegotiationCaseTypeEq", "ORDERS");
+        thisFprq.addOp("orNegotiationCaseSubTypeEq", "ORDERS");
+        fprq.addOp("andOtherBooleanBuilder", thisFprq);
+
+        Page<Negotiation> negotiationPage =
+            negotiationRestRepository.findAll(fprq);
+            
+        return negotiationPage;
     }
 }
