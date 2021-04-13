@@ -389,4 +389,10 @@ public class NegotiationRestRepository extends RestRepository<Negotiation> {
 
 		return result;
     }
+
+	public Negotiation findById(String id) {
+        String url = searchMethodUrl("findByIdOrderByIdAsc", "id");
+        List<Negotiation> negotiations = doGetEntityList(url, Negotiation[].class, id);
+        return negotiations.isEmpty() ? null : negotiations.get(0);
+    }
 }

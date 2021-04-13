@@ -244,7 +244,7 @@ public class FilterAndPageRequestController {
 
 	@GetMapping("/configurationFindOne")
     public Configuration configurationFindOne(
-                @RequestParam(value = "id", defaultValue = "5cf55047643a1f0001f5cab6") String id) {
+                @RequestParam(value = "id", defaultValue = "5ff6e64a4c3401073b05abf0") String id) {
         Configuration config = configurationRestRepository.findById(id);
 		return config;
     }
@@ -357,5 +357,17 @@ public class FilterAndPageRequestController {
             negotiationRestRepository.findAll(fprq);
             
         return negotiationPage;
+    }
+	@GetMapping("/negotiationGet")
+    public Negotiation negotiationGet(
+        @RequestParam(value = "id", defaultValue = "5efdf5c98cf8d40001237785") String id) {
+        Negotiation negotiation = negotiationRestRepository.findOneById(id);
+		return negotiation;
+    }
+	@GetMapping("/negotiationFindById")
+    public Negotiation negotiationFindById(
+        @RequestParam(value = "id", defaultValue = "5efdf5c98cf8d40001237785") String id) {
+        Negotiation negotiation = negotiationRestRepository.findById(id);
+		return negotiation;
     }
 }
